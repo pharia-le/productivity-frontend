@@ -5,10 +5,6 @@ import Registration from './auth/Registration'
 import Login from './auth/Login'
 
 class Home extends Component {
-    constructor(props) {
-        super(props)
-        
-    }
 
     handleSuccessfulAuth = data => {
         this.props.handleLogin(data);
@@ -18,7 +14,7 @@ class Home extends Component {
     handleLogoutClick = () => {
         axios
             .delete("http://localhost:3000/logout", { withCredentials: true })
-            .then(response => {
+            .then(() => {
                 this.props.handleLogout();
             })
             .catch(error => {
