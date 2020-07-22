@@ -16,7 +16,7 @@ class App extends Component {
     }
   }
   
-  checkLoginStatus() {
+  checkLoginStatus = () => {
     axios
       .get("http://localhost:3000/logged_in", { withCredentials: true })
       .then(response => {
@@ -47,15 +47,14 @@ class App extends Component {
     this.checkLoginStatus();
   }
 
-  handleLogout() {
+  handleLogout = () => {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN",
       user: {}
     });
   }
 
-  handleLogin(data) {
-    debugger
+  handleLogin = data => {
     this.setState({
       loggedInStatus: "LOGGED_IN",
       user: data.user
